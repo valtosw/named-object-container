@@ -136,7 +136,7 @@ class Server:
         f.flush()
 
     def who(self, client):
-        self.send_response(client, f"This is a Named Object Container)\n")
+        self.send_response(client, f"This is a Named Object Container\n")
         f.write(
             f"{datetime.now()} - Server - This is a Named Object Container\n\n")
         f.flush()
@@ -151,7 +151,8 @@ class Server:
         f.write(f"{datetime.now()} - Server - Disconnecting...\n\n")
         f.flush()
 
-    def send_response(self, client, response):
+    @staticmethod
+    def send_response(client, response):
         client.conn.send(response.encode(FORMAT))
 
 
